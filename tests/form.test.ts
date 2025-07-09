@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from 'chartest/internal/uploads';
-import { toFile } from 'chartest/core/uploads';
+import { multipartFormRequestOptions, createForm } from '@s0ulman/chartest/internal/uploads';
+import { toFile } from '@s0ulman/chartest/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

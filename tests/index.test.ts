@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'chartest/core/api-promise';
+import { APIPromise } from '@s0ulman/chartest/core/api-promise';
 
 import util from 'node:util';
-import Chartest from 'chartest';
-import { APIUserAbortError } from 'chartest';
+import Chartest from '@s0ulman/chartest';
+import { APIUserAbortError } from '@s0ulman/chartest';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {

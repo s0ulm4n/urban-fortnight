@@ -1,4 +1,4 @@
-import { fromBase64, toBase64 } from 'chartest/internal/utils/base64';
+import { fromBase64, toBase64 } from '@s0ulman/chartest/internal/utils/base64';
 
 describe.each(['Buffer', 'atob'])('with %s', (mode) => {
   let originalBuffer: BufferConstructor;
