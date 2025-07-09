@@ -50,7 +50,7 @@ import { isEmptyObj } from './internal/utils/values';
 
 const environments = {
   production: 'https://todo-ninja-ziix.onrender.com',
-  staging: '127.0.0.1',
+  staging: '127.0.0.1:3000',
 };
 type Environment = keyof typeof environments;
 
@@ -75,7 +75,7 @@ export interface ClientOptions {
    *
    * Each environment maps to a different base URL:
    * - `production` corresponds to `https://todo-ninja-ziix.onrender.com`
-   * - `staging` corresponds to `127.0.0.1`
+   * - `staging` corresponds to `127.0.0.1:3000`
    */
   environment?: Environment | undefined;
 
