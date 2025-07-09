@@ -1,6 +1,6 @@
 # Chartest TypeScript API Library
 
-[![NPM version](<https://img.shields.io/npm/v/chartest.svg?label=npm%20(stable)>)](https://npmjs.org/package/chartest) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/chartest)
+[![NPM version](<https://img.shields.io/npm/v/@s0ulman/chartest.svg?label=npm%20(stable)>)](https://npmjs.org/package/@s0ulman/chartest) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@s0ulman/chartest)
 
 This library provides convenient access to the Chartest REST API from server-side TypeScript or JavaScript.
 
@@ -11,11 +11,8 @@ It is generated with [Stainless](https://www.stainless.com/).
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:s0ulm4n/urban-fortnight.git
+npm install @s0ulman/chartest
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npm install chartest`
 
 ## Usage
 
@@ -23,7 +20,7 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import Chartest from 'chartest';
+import Chartest from '@s0ulman/chartest';
 
 const client = new Chartest({
   username: process.env['CHARTEST_USERNAME'], // This is the default and can be omitted
@@ -42,7 +39,7 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import Chartest from 'chartest';
+import Chartest from '@s0ulman/chartest';
 
 const client = new Chartest({
   username: process.env['CHARTEST_USERNAME'], // This is the default and can be omitted
@@ -166,7 +163,7 @@ The log level can be configured in two ways:
 2. Using the `logLevel` client option (overrides the environment variable if set)
 
 ```ts
-import Chartest from 'chartest';
+import Chartest from '@s0ulman/chartest';
 
 const client = new Chartest({
   logLevel: 'debug', // Show all log messages
@@ -194,7 +191,7 @@ When providing a custom logger, the `logLevel` option still controls which messa
 below the configured level will not be sent to your logger.
 
 ```ts
-import Chartest from 'chartest';
+import Chartest from '@s0ulman/chartest';
 import pino from 'pino';
 
 const logger = pino();
@@ -263,7 +260,7 @@ globalThis.fetch = fetch;
 Or pass it to the client:
 
 ```ts
-import Chartest from 'chartest';
+import Chartest from '@s0ulman/chartest';
 import fetch from 'my-fetch';
 
 const client = new Chartest({ fetch });
@@ -274,7 +271,7 @@ const client = new Chartest({ fetch });
 If you want to set custom `fetch` options without overriding the `fetch` function, you can provide a `fetchOptions` object when instantiating the client or making a request. (Request-specific options override client options.)
 
 ```ts
-import Chartest from 'chartest';
+import Chartest from '@s0ulman/chartest';
 
 const client = new Chartest({
   fetchOptions: {
@@ -291,7 +288,7 @@ options to requests:
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/node.svg" align="top" width="18" height="21"> **Node** <sup>[[docs](https://github.com/nodejs/undici/blob/main/docs/docs/api/ProxyAgent.md#example---proxyagent-with-fetch)]</sup>
 
 ```ts
-import Chartest from 'chartest';
+import Chartest from '@s0ulman/chartest';
 import * as undici from 'undici';
 
 const proxyAgent = new undici.ProxyAgent('http://localhost:8888');
@@ -305,7 +302,7 @@ const client = new Chartest({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/bun.svg" align="top" width="18" height="21"> **Bun** <sup>[[docs](https://bun.sh/guides/http/proxy)]</sup>
 
 ```ts
-import Chartest from 'chartest';
+import Chartest from '@s0ulman/chartest';
 
 const client = new Chartest({
   fetchOptions: {
@@ -317,7 +314,7 @@ const client = new Chartest({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/deno.svg" align="top" width="18" height="21"> **Deno** <sup>[[docs](https://docs.deno.com/api/deno/~/Deno.createHttpClient)]</sup>
 
 ```ts
-import Chartest from 'npm:chartest';
+import Chartest from 'npm:@s0ulman/chartest';
 
 const httpClient = Deno.createHttpClient({ proxy: { url: 'http://localhost:8888' } });
 const client = new Chartest({

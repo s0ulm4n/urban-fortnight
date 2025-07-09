@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from 'chartest/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from '@s0ulman/chartest/internal/utils/path';
 import { inspect } from 'node:util';
 import { runInNewContext } from 'node:vm';
 

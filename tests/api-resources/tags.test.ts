@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Chartest from 'chartest';
+import Chartest from '@s0ulman/chartest';
 
 const client = new Chartest({
   username: 'My Username',
