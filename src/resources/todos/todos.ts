@@ -89,6 +89,19 @@ export class Todos extends APIResource {
   complete(id: string, options?: RequestOptions): APIPromise<Todo> {
     return this._client.post(path`/v1/todos/${id}/complete`, options);
   }
+
+  /**
+   * @example
+   * ```ts
+   * const response = await client.todos.listV2();
+   * ```
+   */
+  listV2(
+    query: TodoListV2Params | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<TodoListV2Response> {
+    return this._client.get('/v2/todos', { query, ...options });
+  }
 }
 
 export interface Todo {
@@ -133,6 +146,14 @@ export interface TodoDeleteResponse {
   deleted: boolean;
 }
 
+export interface TodoListV2Response {
+  data: Array<Todo>;
+
+  has_more: boolean;
+
+  next_cursor: string | null;
+}
+
 export interface TodoCreateParams {
   completed_at: string | null;
 
@@ -159,6 +180,12 @@ export interface TodoListParams {
   limit?: number | null;
 }
 
+export interface TodoListV2Params {
+  cursor?: string;
+
+  limit?: number | null;
+}
+
 Todos.Tags = Tags;
 
 export declare namespace Todos {
@@ -166,9 +193,11 @@ export declare namespace Todos {
     type Todo as Todo,
     type TodoListResponse as TodoListResponse,
     type TodoDeleteResponse as TodoDeleteResponse,
+    type TodoListV2Response as TodoListV2Response,
     type TodoCreateParams as TodoCreateParams,
     type TodoUpdateParams as TodoUpdateParams,
     type TodoListParams as TodoListParams,
+    type TodoListV2Params as TodoListV2Params,
   };
 
   export { Tags as Tags, type TagAddParams as TagAddParams, type TagRemoveParams as TagRemoveParams };
