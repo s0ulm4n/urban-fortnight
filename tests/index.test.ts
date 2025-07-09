@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'chartest/core/api-promise';
+import { APIPromise } from '@s0ulman/chartest/core/api-promise';
 
 import util from 'node:util';
-import Chartest from 'chartest';
-import { APIUserAbortError } from 'chartest';
+import Chartest from '@s0ulman/chartest';
+import { APIUserAbortError } from '@s0ulman/chartest';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {
@@ -377,6 +377,31 @@ describe('instantiate client', () => {
     test('blank env variable', () => {
       process.env['CHARTEST_BASE_URL'] = '  '; // blank
       const client = new Chartest({ username: 'My Username', password: 'My Password', apiKey: 'My API Key' });
+      expect(client.baseURL).toEqual('https://todo-ninja-ziix.onrender.com');
+    });
+
+    test('env variable with environment', () => {
+      process.env['CHARTEST_BASE_URL'] = 'https://example.com/from_env';
+
+      expect(
+        () =>
+          new Chartest({
+            username: 'My Username',
+            password: 'My Password',
+            apiKey: 'My API Key',
+            environment: 'production',
+          }),
+      ).toThrowErrorMatchingInlineSnapshot(
+        `"Ambiguous URL; The \`baseURL\` option (or CHARTEST_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
+      );
+
+      const client = new Chartest({
+        username: 'My Username',
+        password: 'My Password',
+        apiKey: 'My API Key',
+        baseURL: null,
+        environment: 'production',
+      });
       expect(client.baseURL).toEqual('https://todo-ninja-ziix.onrender.com');
     });
 

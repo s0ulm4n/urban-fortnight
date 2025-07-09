@@ -6,7 +6,9 @@ export {
   type Todo,
   type TodoListResponse,
   type TodoDeleteResponse,
+  type TodoListV2Response,
   type TodoCreateParams,
   type TodoUpdateParams,
   type TodoListParams,
+  type TodoListV2Params,
 } from './todos';

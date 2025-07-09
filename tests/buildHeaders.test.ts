@@ -1,5 +1,5 @@
 import { inspect } from 'node:util';
-import { buildHeaders, type HeadersLike, type NullableHeaders } from 'chartest/internal/headers';
+import { buildHeaders, type HeadersLike, type NullableHeaders } from '@s0ulman/chartest/internal/headers';
 
 function inspectNullableHeaders(headers: NullableHeaders) {
   return `NullableHeaders {${[
