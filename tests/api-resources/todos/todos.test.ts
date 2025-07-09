@@ -121,4 +121,24 @@ describe('resource todos', () => {
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
   });
+
+  // skipped: tests are disabled for the time being
+  test.skip('listV2', async () => {
+    const responsePromise = client.todos.listV2();
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('listV2: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.todos.listV2({ cursor: 'cursor', limit: 100 }, { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(Chartest.NotFoundError);
+  });
 });

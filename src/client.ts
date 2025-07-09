@@ -31,6 +31,8 @@ import {
   TodoDeleteResponse,
   TodoListParams,
   TodoListResponse,
+  TodoListV2Params,
+  TodoListV2Response,
   TodoUpdateParams,
   Todos,
 } from './resources/todos/todos';
@@ -818,9 +820,11 @@ export declare namespace Chartest {
     type Todo as Todo,
     type TodoListResponse as TodoListResponse,
     type TodoDeleteResponse as TodoDeleteResponse,
+    type TodoListV2Response as TodoListV2Response,
     type TodoCreateParams as TodoCreateParams,
     type TodoUpdateParams as TodoUpdateParams,
     type TodoListParams as TodoListParams,
+    type TodoListV2Params as TodoListV2Params,
   };
 
   export {
