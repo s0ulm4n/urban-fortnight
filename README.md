@@ -26,6 +26,7 @@ const client = new Chartest({
   username: process.env['CHARTEST_USERNAME'], // This is the default and can be omitted
   password: process.env['CHARTEST_PASSWORD'], // This is the default and can be omitted
   apiKey: process.env['CHARTEST_API_KEY'], // This is the default and can be omitted
+  environment: 'staging', // defaults to 'production'
 });
 
 const todos = await client.todos.list();
@@ -45,6 +46,7 @@ const client = new Chartest({
   username: process.env['CHARTEST_USERNAME'], // This is the default and can be omitted
   password: process.env['CHARTEST_PASSWORD'], // This is the default and can be omitted
   apiKey: process.env['CHARTEST_API_KEY'], // This is the default and can be omitted
+  environment: 'staging', // defaults to 'production'
 });
 
 const todos: Chartest.TodoListResponse = await client.todos.list();
