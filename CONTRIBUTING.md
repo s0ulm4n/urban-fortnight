@@ -42,15 +42,15 @@ If you’d like to use the repository from source, you can either install from g
 To install via git:
 
 ```sh
-$ npm install git+ssh://git@github.com:stainless-sdks/chartest-typescript.git
+$ npm install git+ssh://git@github.com:s0ulm4n/urban-fortnight.git
 ```
 
 Alternatively, to link a local copy of the repo:
 
 ```sh
 # Clone
-$ git clone https://www.github.com/stainless-sdks/chartest-typescript
-$ cd chartest-typescript
+$ git clone https://www.github.com/s0ulm4n/urban-fortnight
+$ cd urban-fortnight
 
 # With yarn
 $ yarn link
