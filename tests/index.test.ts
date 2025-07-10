@@ -28,13 +28,13 @@ describe('instantiate client', () => {
       apiKey: 'My API Key',
     });
 
-    test('they are used in the request', () => {
-      const { req } = client.buildRequest({ path: '/foo', method: 'post' });
+    test('they are used in the request', async () => {
+      const { req } = await client.buildRequest({ path: '/foo', method: 'post' });
       expect(req.headers.get('x-my-default-header')).toEqual('2');
     });
 
-    test('can ignore `undefined` and leave the default', () => {
-      const { req } = client.buildRequest({
+    test('can ignore `undefined` and leave the default', async () => {
+      const { req } = await client.buildRequest({
         path: '/foo',
         method: 'post',
         headers: { 'X-My-Default-Header': undefined },
@@ -42,8 +42,8 @@ describe('instantiate client', () => {
       expect(req.headers.get('x-my-default-header')).toEqual('2');
     });
 
-    test('can be removed with `null`', () => {
-      const { req } = client.buildRequest({
+    test('can be removed with `null`', async () => {
+      const { req } = await client.buildRequest({
         path: '/foo',
         method: 'post',
         headers: { 'X-My-Default-Header': null },
@@ -448,7 +448,7 @@ describe('instantiate client', () => {
   });
 
   describe('withOptions', () => {
-    test('creates a new client with overridden options', () => {
+    test('creates a new client with overridden options', async () => {
       const client = new Chartest({
         baseURL: 'http://localhost:5000/',
         maxRetries: 3,
@@ -475,7 +475,7 @@ describe('instantiate client', () => {
       expect(newClient.constructor).toBe(client.constructor);
     });
 
-    test('inherits options from the parent client', () => {
+    test('inherits options from the parent client', async () => {
       const client = new Chartest({
         baseURL: 'http://localhost:5000/',
         defaultHeaders: { 'X-Test-Header': 'test-value' },
@@ -492,7 +492,7 @@ describe('instantiate client', () => {
       // Test inherited options remain the same
       expect(newClient.buildURL('/foo', null)).toEqual('http://localhost:5001/foo?test-param=test-value');
 
-      const { req } = newClient.buildRequest({ path: '/foo', method: 'get' });
+      const { req } = await newClient.buildRequest({ path: '/foo', method: 'get' });
       expect(req.headers.get('x-test-header')).toEqual('test-value');
     });
 
@@ -556,8 +556,8 @@ describe('request building', () => {
   const client = new Chartest({ username: 'My Username', password: 'My Password', apiKey: 'My API Key' });
 
   describe('custom headers', () => {
-    test('handles undefined', () => {
-      const { req } = client.buildRequest({
+    test('handles undefined', async () => {
+      const { req } = await client.buildRequest({
         path: '/foo',
         method: 'post',
         body: { value: 'hello' },
@@ -592,8 +592,8 @@ describe('default encoder', () => {
     }
   }
   for (const jsonValue of [{}, [], { __proto__: null }, new Serializable(), new Collection(['item'])]) {
-    test(`serializes ${util.inspect(jsonValue)} as json`, () => {
-      const { req } = client.buildRequest({
+    test(`serializes ${util.inspect(jsonValue)} as json`, async () => {
+      const { req } = await client.buildRequest({
         path: '/foo',
         method: 'post',
         body: jsonValue,
@@ -616,7 +616,7 @@ describe('default encoder', () => {
     asyncIterable,
   ]) {
     test(`converts ${util.inspect(streamValue)} to ReadableStream`, async () => {
-      const { req } = client.buildRequest({
+      const { req } = await client.buildRequest({
         path: '/foo',
         method: 'post',
         body: streamValue,
@@ -629,7 +629,7 @@ describe('default encoder', () => {
   }
 
   test(`can set content-type for ReadableStream`, async () => {
-    const { req } = client.buildRequest({
+    const { req } = await client.buildRequest({
       path: '/foo',
       method: 'post',
       body: new Response('a\nb\nc\n').body,
