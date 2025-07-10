@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-07-10)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/s0ulm4n/urban-fortnight/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Chores
+
+* make some internal functions async ([5226583](https://github.com/s0ulm4n/urban-fortnight/commit/52265837a417def8bc20ab28d1426e4698a106d5))
+
 ## 0.1.0-alpha.1 (2025-07-09)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/s0ulm4n/urban-fortnight/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
