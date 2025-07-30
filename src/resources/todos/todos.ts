@@ -152,6 +152,8 @@ export interface TodoListV2Response {
   has_more: boolean;
 
   next_cursor: string | null;
+
+  problematic?: unknown;
 }
 
 export interface TodoCreateParams {

@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-07-30)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/s0ulm4n/urban-fortnight/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* **api:** update via SDK Studio ([91af5bb](https://github.com/s0ulm4n/urban-fortnight/commit/91af5bb730812a01916c1a17a6abfca2e108fcfc))
+
+
+### Chores
+
+* **internal:** remove redundant imports config ([1bf1923](https://github.com/s0ulm4n/urban-fortnight/commit/1bf1923a16c7f29392058cadf77aa6e67afee051))
+* make some internal functions async ([5226583](https://github.com/s0ulm4n/urban-fortnight/commit/52265837a417def8bc20ab28d1426e4698a106d5))
+* **ts:** reorder package.json imports ([aae8cf8](https://github.com/s0ulm4n/urban-fortnight/commit/aae8cf8388029e9ce2cd4ecf2aedfc11191823cd))
+
 ## 0.1.0-alpha.1 (2025-07-09)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/s0ulm4n/urban-fortnight/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
